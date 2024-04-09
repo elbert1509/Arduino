@@ -13,6 +13,7 @@ LedControl lc=LedControl(8,13,9,1);
 
 /* we always wait a bit between updates of the display */
 unsigned long delaytime=250;
+char tab1[]="HELL0";
 
 void setup() {
   /*
@@ -33,13 +34,13 @@ void setup() {
  */
 void writeArduinoOn7Segment() {
   //lc.setChar(0,0,'',false);
-  lc.setChar(0,1,'H',false);
-  lc.setChar(0,2,'A',false);
-  lc.setChar(0,3,'Y',false);
-  lc.setChar(0,4,'K',false);
-  lc.setChar(0,5,'I',false);
-  lc.setChar(0,6,'L',false);
-  lc.setChar(0,7,'E',false);
+  lc.setChar(0,1,'_',false);
+  lc.setChar(0,2,'_',false);
+  lc.setChar(0,3,'0',false);
+  lc.setChar(0,4,'L',false);
+  lc.setChar(0,5,'L',false);
+  lc.setChar(0,6,'E',false);
+  lc.setChar(0,7,'H',false);
   delay(delaytime);
   //lc.setChar(0,0,'',false);
   //lc.setChar(0,1,'',false);
@@ -52,6 +53,31 @@ void writeArduinoOn7Segment() {
   delay(delaytime);
 
 } 
+
+void chennillard()
+{
+  char hello[] = "0LLEH";
+  for(int i = 0; i < 5; i++)
+  {
+    lc.setChar(0, 4, hello[i], false);
+    lc.setChar(0, 3, hello[i+1], false);
+    lc.setChar(0, 2, hello[i+2], false);
+    lc.setChar(0, 1, hello[i+3], false);
+    lc.setChar(0, 0, hello[i+4], false);
+    delay(delaytime);
+  }
+}
+
+void chennillard1 ()
+{
+  for(int i=0; i<6 ;i++)
+  {
+     lc.setChar(0,i,tab1[i],false);
+     delay(delaytime);
+
+  }
+
+}
 
 /*
   This method will scroll all the hexa-decimal
@@ -71,6 +97,7 @@ void scrollDigits() {
 }
 
 void loop() { 
-  writeArduinoOn7Segment();
+  //writeArduinoOn7Segment();
+  chennillard();
   //scrollDigits();
 }
