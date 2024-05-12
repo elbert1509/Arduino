@@ -1,5 +1,11 @@
+
+
+#include <DFRobotDFPlayerMini.h>
+
+#include <DFPlayerMini.h>
+
 #include <SoftwareSerial.h>
-#include <DFPlayer_Mini_Mp3.h>
+//#include <DFPlayer_Mini_Mp3.h>
 
 int rangee[] = {9, 8, 7, 6};
 int colonne[] = {10, 11, 12, 2};
@@ -9,9 +15,9 @@ void setup()
 {
  Serial.begin(9600);
   mySerial.begin (9600);
-  mp3_set_serial (mySerial);  //set softwareSerial for DFPlayer-mini mp3 module 
-  mp3_set_volume (25);
-  mp3_set_device(2);
+  set_serial (mySerial);  //set softwareSerial for DFPlayer-mini mp3 module 
+  set_volume (25);
+  set_device(2);
   
  for (int i = 0; i <= 3; i++)
  {
